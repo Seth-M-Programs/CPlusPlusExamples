@@ -1,0 +1,39 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+	const int MAX = 10;
+	vector<int> numbers;
+	vector<int>::iterator iter;
+
+	int num;
+
+	for (int i = 0; i < MAX; ++i) {
+		cout << "\nEnter #" << i + 1 << ": ";
+		cin >> num;
+		numbers.push_back(num);
+	}
+
+	cout << "\nEnter number to find and delete: ";
+	cin >> num;
+
+	iter = find(numbers.begin(), numbers.end(), num);
+
+	if (iter == numbers.end()) {
+		cout << "\nNumber not found!!" << endl;
+	}
+	else {
+		cout << "\nNumber found and deleted." << endl;
+		numbers.erase(iter);
+	}
+
+	for (iter = numbers.begin(); iter != numbers.end(); ++iter) {
+		cout << *iter << endl;
+	}
+
+	system("pause");
+	return 0;
+}
